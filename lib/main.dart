@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tudoom/screens/participaints/participiants.dart';
+import 'package:tudoom/screens/edit%20profile/edit_profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ParticipiantsScreen(),
+      home: const EditProfileScreen(),
     );
   }
 }

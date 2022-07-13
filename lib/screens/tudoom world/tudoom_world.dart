@@ -8,7 +8,9 @@ import 'package:tudoom/screens/leadboard/leadboard.dart';
 import 'package:tudoom/screens/market/market_place.dart';
 import 'package:tudoom/screens/new%20post/new_post.dart';
 import 'package:tudoom/screens/notification/notification.dart';
+import 'package:tudoom/screens/participaints/participiants.dart';
 import 'package:tudoom/screens/reffrals/reffrals_screen.dart';
+import 'package:tudoom/screens/room%20info/room_info.dart';
 import 'package:tudoom/screens/stars%20and%20badges/star_and_badges.dart';
 
 import '../../constants/constants.dart';
@@ -257,6 +259,59 @@ class TudoomWorldScreen extends StatelessWidget {
                         'new post',
                       ),
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RoomInfoScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'room info',
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ParticipiantsScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'praticipiants',
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LeadboardScreen()),
+                        );
+                      },
+                      child: const Text(
+                        'Block user',
+                      ),
+                    ),
+                    // TextButton(
+                    //   onPressed: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const NewPostScreen()),
+                    //     );
+                    //   },
+                    //   child: const Text(
+                    //     'new post',
+                    //   ),
+                    // ),
                   ],
                 ),
 

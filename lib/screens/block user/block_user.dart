@@ -3,59 +3,53 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/constants.dart';
 
-class ParticipiantsScreen extends StatefulWidget {
-  const ParticipiantsScreen({Key? key}) : super(key: key);
+class BlockUserScreen extends StatefulWidget {
+  const BlockUserScreen({Key? key}) : super(key: key);
 
   @override
-  State<ParticipiantsScreen> createState() => _ParticipiantsScreenState();
+  State<BlockUserScreen> createState() => _BlockUserScreenState();
 }
 
-class _ParticipiantsScreenState extends State<ParticipiantsScreen> {
-  List<User> users = [
-    const User(
+class _BlockUserScreenState extends State<BlockUserScreen> {
+  List<BlockUser> blockUser = [
+    BlockUser(
       name: 'Angela yu',
       username: 'factt.u',
       image: 'assets/images/participian01.jpg',
-      level: 'Lvl 15',
     ),
-    const User(
+    BlockUser(
       name: 'Ishh',
       username: 'ishikapandeyy_',
       image: 'assets/images/participian02.jpg',
-      level: 'Lvl 29',
     ),
-    const User(
+    BlockUser(
       name: 'saksh!!',
       username: 'saakshiii.3',
       image: 'assets/images/participian03.jpg',
-      level: 'Lvl 25',
     ),
-    const User(
+    BlockUser(
       name: 'Monisha mohan menon',
       username: 'Monisha.mohan.menon',
       image: 'assets/images/participian04.jpg',
-      level: 'Lvl 30',
     ),
-    const User(
+    BlockUser(
       name: 'Anisha',
       username: 'aaaniiissshhhaaa',
       image: 'assets/images/participian05.jpg',
-      level: 'Lvl 29',
     ),
-    const User(
+    BlockUser(
       name: 'Anushaya Singh_',
       username: 'anushayaaa_',
       image: 'assets/images/participian06.jpg',
-      level: 'Lvl 89',
     ),
-    const User(
+    BlockUser(
       name: 'pooja kothari',
       username: 'pooja_kothari',
       image: 'assets/images/participian07.jpg',
-      level: 'Lvl 50',
     ),
   ];
 
+  bool value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +59,7 @@ class _ParticipiantsScreenState extends State<ParticipiantsScreen> {
         centerTitle: true,
         backgroundColor: purple,
         title: Text(
-          'Participiants',
+          'Block user',
           style: GoogleFonts.poppins(
             color: white,
             fontSize: 24,
@@ -93,44 +87,28 @@ class _ParticipiantsScreenState extends State<ParticipiantsScreen> {
               vertical: 20,
             ),
             child: ListView.builder(
-              itemCount: users.length,
+              itemCount: blockUser.length,
               itemBuilder: (context, index) {
-                final user = users[index];
+                final user = blockUser[index];
                 return Card(
                   child: ListTile(
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundImage: AssetImage(user.image),
-                    ),
-                    title: Text(user.name),
-                    subtitle: Text(user.username),
-                    trailing: Container(
-                      // height: 20,
-                      // width: 40,
-                      decoration: const BoxDecoration(
-                        color: purple,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            15,
-                          ),
-                        ),
+                      leading: CircleAvatar(
+                        radius: 28,
+                        backgroundImage: AssetImage(user.image),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 13,
-                          vertical: 8,
-                        ),
-                        child: Text(
-                          user.level,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15,
-                            color: white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                      title: Text(user.name),
+                      subtitle: Text(user.username),
+                      trailing: Checkbox(
+                          shape: const CircleBorder(),
+                          checkColor: purple,
+                          activeColor: purple,
+                          value: user.value,
+                          onChanged: (value) {
+                            setState(() {
+                              final newValue = user.value;
+                              user.value = value!;
+                            });
+                          })),
                 );
               },
             ),
@@ -141,16 +119,16 @@ class _ParticipiantsScreenState extends State<ParticipiantsScreen> {
   }
 }
 
-class User {
+class BlockUser {
   final String name;
   final String username;
   final String image;
-  final String level;
+  bool value;
 
-  const User({
+  BlockUser({
     required this.name,
     required this.username,
-    required this.level,
+    this.value = false,
     required this.image,
   });
 }
